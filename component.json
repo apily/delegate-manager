@@ -1,0 +1,13 @@
+{
+  "name": "delegate-manager",
+  "repo": "apily/delegate-manager",
+  "version": "0.0.1",
+  "description": "Delegate manager",
+  "keywords": ["event", "events", "bind", "delegate"],
+  "scripts": ["index.js"],
+  "dependencies": {
+    "component/delegate": "*"
+  },
+  "development": {},
+  "license": "MIT"
+}
