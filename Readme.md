@@ -1,12 +1,12 @@
-# stick
+# delegate-manager
 
-JavaScript MVC view library
+Delegate manager for component
 
 ## License
 
 (The MIT License)
 
-Copyright (c) 2012 Enrico Marino
+Copyright (c) 2012 Enrico Marino and Federico Spini
 
 Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the
