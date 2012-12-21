@@ -1,0 +1,28 @@
+{
+  "maintainers": [
+    {
+      "name": "Enrico Marino",
+      "email": "enrico.marino@email.com",
+      "url": "onirame.com"
+    },
+    {
+      "name": "Federico Spini",
+      "email": "federico.spini@gmail.com",
+      "url": "federicospini.com"
+    }
+  ],
+  "name": "delegate-manager",
+  "description": "Delegate manager component",
+  "version": "0.0.1",
+  "homepage": "https://github.com/apily/delegate-manager",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/apily/delegate-manager.git"
+  },
+  "main": "index.js",
+  "engines": {
+    "node": "*"
+  },
+  "dependencies": {},
+  "devDependencies": {}
+}
