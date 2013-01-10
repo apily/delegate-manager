@@ -62,13 +62,17 @@ DelegateManager.prototype.bind = function(str, method) {
   var selector = event.selector;
   var method = method || 'on' + name;
   var fn = obj[method].bind(obj);
+  var callback;
 
   if (selector !== '') {
-    fn = delegate.bind(target, selector, name, fn, false); 
+    callback = delegate.bind(target, selector, name, fn, false); 
+  } else {
+    target.addEventListener(name, fn, false);
+    callback = fn;
   }
 
   bindings[name] = bindings[name] || {};
-  bindings[name][method] = fn;
+  bindings[name][method] = callback;
 
   return this;
 };
