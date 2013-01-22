@@ -1,6 +1,6 @@
 {
   "name": "delegate-manager",
-  "repo": "component-mvc/delegate-manager",
+  "repo": "apily/delegate-manager",
   "version": "0.0.1",
   "description": "Delegate manager",
   "keywords": ["event", "events", "bind", "delegate"],
