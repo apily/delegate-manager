@@ -2,8 +2,8 @@
  * delegate-manager
  * Delegate manager
  *
- * Copyright 2012 Enrico Marino and Federico Spini
- * MIT License
+ * @copyright 2012 Enrico Marino and Federico Spini
+ * @license MIT
  */ 
 
 /*
@@ -89,7 +89,7 @@ DelegateManager.prototype.bind = function(str, method) {
 };
 
 /**
- * bind
+ * bind_all
  * Bind to `event` with optional `method` name
  * for each pair `event`/`method` in `obj`
  * When `method` is undefined it becomes `event`
@@ -112,6 +112,7 @@ DelegateManager.prototype.bind_all = function(obj) {
 };
 
 /**
+ * unbind
  * Unbind a single binding, all bindings for `event`,
  * or all bindings within the manager.
  *
@@ -191,7 +192,8 @@ DelegateManager.prototype.unbind_all_of = function(event) {
 };
 
 
-/**
+/*
+ * parse
  * Parse event / selector string.
  *
  * @param {String} string
