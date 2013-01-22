@@ -18,6 +18,13 @@ module.exports = DelegateManager;
 
 var delegate = require('delegate');
 
+/* 
+ * Utilities
+ */
+
+var object = {};
+var toString = object.toString;
+
 /*
  * DelegateManager
  * Create an event manager.
@@ -54,6 +61,10 @@ function DelegateManager(target, obj) {
  */
 
 DelegateManager.prototype.bind = function(str, method) {
+  if (toString.call(str) === '[object Object]') {
+    return this.bind_all(str);
+  }
+  
   var target = this.target;
   var obj = this.obj;
   var bindings = this._bindings;
@@ -74,6 +85,29 @@ DelegateManager.prototype.bind = function(str, method) {
   bindings[name] = bindings[name] || {};
   bindings[name][method] = callback;
 
+  return this;
+};
+
+/**
+ * bind
+ * Bind to `event` with optional `method` name
+ * for each pair `event`/`method` in `obj`
+ * When `method` is undefined it becomes `event`
+ * with the "on" prefix.
+ *
+ * @example
+ *    events.bind('login') // implies "onlogin"
+ *    events.bind('login', 'onLogin')
+ *
+ * @param {Object} obj pairs `event`/`method` to bind
+ * @return {DelegateManager} the event manager, for chaining
+ * @api public
+ */
+
+DelegateManager.prototype.bind_all = function(obj) {
+  Object.keys(obj).forEach(function(key) {
+    this.bind(key, obj[key]);
+  }, this);
   return this;
 };
 
