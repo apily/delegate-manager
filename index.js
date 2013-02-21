@@ -105,9 +105,10 @@ DelegateManager.prototype.bind = function(str, method) {
  */
 
 DelegateManager.prototype.bind_all = function(obj) {
-  Object.keys(obj).forEach(function(key) {
-    this.bind(key, obj[key]);
-  }, this);
+  var event;
+  for (event in obj) {
+    this.bind(event, obj[event]);
+  }
   return this;
 };
 
