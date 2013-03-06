@@ -2,7 +2,7 @@
  * delegate-manager
  * Delegate manager
  *
- * @copyright 2012 Enrico Marino and Federico Spini
+ * @copyright 2013 Enrico Marino and Federico Spini
  * @license MIT
  */ 
 
@@ -142,12 +142,20 @@ DelegateManager.prototype.unbind = function(str, method) {
   var name = event.name;
   var selector = event.selector;
   var method = method || 'on' + name;
-  var fn = bindings[name][method];
-
-  if (fn) {
-    delegate.unbind(target, name, fn, false);
-    delete bindings[name][method];
+  var functions = bindings[name];
+  
+  if (!functions) {
+    return this;
   }
+  
+  var fn = functions[method];
+
+  if (!fn) {
+    return this;
+  }
+
+  delegate.unbind(target, name, fn, false);
+  delete bindings[name][method];
   
   return this;
 };
@@ -182,7 +190,9 @@ DelegateManager.prototype.unbind_all_of = function(event) {
   var bindings = this._bindings[event];
   var method;
 
-  if (!bindings) return;
+  if (!bindings) {
+    return this;
+  }
 
   for (method in bindings) {
     this.unbind(event, method);
